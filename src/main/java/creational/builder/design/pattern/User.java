@@ -18,27 +18,49 @@ public class User {
     private int userAge;
 
     public User(UserBuilder userBuilder){
-
+        this.userName = userBuilder.userName;
+        this.userAge = userBuilder.userAge;
+        this.userEmail = userBuilder.userEmail;
+        this.userSSN = userBuilder.userSSN;
     }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public String getUserSSN() {
-        return userSSN;
-    }
-
-    public int getUserAge() {
-        return userAge;
-    }
-
 
     public static class UserBuilder {
+        private String userName;
+        private String userEmail;
+        private String userSSN;
+        private int userAge;
 
+        public UserBuilder(String userName, String userSSN) {
+            this.userName = userName;
+            this.userSSN = userSSN;
+        }
+
+        public UserBuilder age(int userAge) {
+            this.userAge = userAge;
+            return this;
+        }
+
+        public UserBuilder email(String userEmail) {
+            this.userEmail = userEmail;
+            return this;
+        }
+        public User build(){ return new User(this); }
+
+
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userSSN='" + userSSN + '\'' +
+                ", userAge=" + userAge +
+                '}';
+    }
+
+    public static void main(String[] args) {
+        User userObject = new UserBuilder("Juned5252","9999").age(27).email("juned@gmail.com").build();
+        System.out.println( userObject.toString());
     }
 }
