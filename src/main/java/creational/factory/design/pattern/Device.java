@@ -14,5 +14,6 @@ package creational.factory.design.pattern;
   implement those.
  */
 public interface Device {
-
+void screenRange();
+void priceRange();
 }
