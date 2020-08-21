@@ -10,6 +10,6 @@ package behavioral.observer.desin.pattern;
   To design this pattern, whatever number of classes needed, please feel free to
   implement those.
  */
-public class Observer {
-
+public interface Observer {
+  public void update(double ibmPrice, double aaplePrice, double googPrice);
 }
